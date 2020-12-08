@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+  </head>
+  <body>
+    <h1>This is my first express app</h1>
+    <h2>May Node be with you always</h2>
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" name="quote" placeholder="quote" />
+      <button type="submit">Submit</button>
+    </form>
+    <hr />
+    <!-- Rendering the list of quotes -->
+    <h2>Quotes</h2>
+
+    <ul class="quotes">
+      <!-- Loop through quotes -->
+      <% for( let i = 0; i < quotes.length; i++ ) { %>
+      <li class="quote">
+        <%# Output name from the iterable quote object %>
+        <span><%= quotes[i].name %> </span>: <%# Output quote from the iterable
+        quote object %>
+        <span><%= quotes[i].quote %> </span>
+        <% } %>
+      </li>
+    </ul>
+    <hr />
+
+    <div>
+      <h2>Darth Vadar Invades!</h2>
+      <p>Replace first Yoda's quote with Darth Vadar's</p>
+      <button id="update-button">Replace Yoda's quotes</button>
+    </div>
+    <hr />
+
+    <div>
+      <h2>Remove Darth Vadar!</h2>
+      <p>
+        Delete one Darth Vadar's quote. Does nothing if there are no more Darth
+        Vadar's quote
+      </p>
+      <button id="delete-button">Delete Darth Vadar's quote</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
